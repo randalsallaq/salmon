@@ -1,6 +1,70 @@
 'use strict';
 
 
+var body = document.getElementById('salmonObjects');
+var table = document.createElement('table');
+
+
+//here starts the form
+
+var form = document.getElementById('formid');
+form.addEventListener('submit', function(formSubmit){
+
+formSubmit.preventDefault();
+
+var name = formSubmit.target.namefield.value;
+console.log(name);
+
+
+var minimum = formSubmit.target.min.value;
+console.log(minimum);
+minimum = Number(minimum);
+
+
+var maximum = formSubmit.target.max.value;
+console.log(maximum);
+maximum = Number(maximum);
+
+
+var average = formSubmit.target.avg.value;
+console.log(average);
+average = Number(average);
+
+
+var addcookiestand = new Salmoncookies(name, minimum, maximum, average);
+
+// addcookiestand.numCust();
+// addcookiestand.numCock();
+// addcookiestand.render();
+
+totalcolumn = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
+
+body.textContent= ' ';
+
+table = document.createElement('table');
+body.appendChild(table);
+
+header();
+
+for (var index = 0; index < salmoncookiesArray.length; index++) {
+
+    salmoncookiesArray[index].numCust();
+    salmoncookiesArray[index].numCock();
+    salmoncookiesArray[index].render();
+    
+}
+footer();
+
+});
+
+
+
+
+
+
+
+
 
 var hours = ['6:00 am', '7:00 am', '8:00 am', '9:00 am', '10:00 am', '11:00 am', '12:00 pm', '1:00 pm', '2:00 pm', '3:00 pm', '4:00 pm', '5:00 pm', '6:00 pm', '7:00 pm', '8:00 pm'];
 
@@ -15,16 +79,20 @@ function getRandomNumber(min, max) {
     return randomnum;
 };
 
+
+
+//table starts from here
+
 var salmoncookiesArray = [];
 
 
 
-var body = document.getElementById('salmonObjects');
-var table = document.createElement('table');
+ body = document.getElementById('salmonObjects');
+ table = document.createElement('table');
 body.appendChild(table);
 
 function header(){
-
+    console.log('from head5');
     var head = document.createElement('tr');
     table.appendChild(head);
 
@@ -68,13 +136,9 @@ function footer(){
     }
 
 
-// function footer(){
-//     var foot = document.createElement('tr');
-//     var 
-// }
 
 
-
+//constructer starts from here
 function Salmoncookies (name, minCust, maxCus, AvgCookieSale){
 
         this.name = name;
@@ -136,7 +200,7 @@ function Salmoncookies (name, minCust, maxCus, AvgCookieSale){
 
       
 
-
+//other objects
     var seattle = new Salmoncookies ('Seattle', 23, 65, 6.3 );
 
     var tokyo = new Salmoncookies ('Tokyo', 3, 24, 1.2 );
@@ -148,9 +212,10 @@ function Salmoncookies (name, minCust, maxCus, AvgCookieSale){
     var lima = new Salmoncookies ('Lima', 2, 16, 4.6);
 
 
-    header();
+  //call the header (hours)  
+header();
 
-
+//this loop is to call all the functions without calling them one by one
 
 for (var index = 0; index < salmoncookiesArray.length; index++) {
 
@@ -160,6 +225,7 @@ for (var index = 0; index < salmoncookiesArray.length; index++) {
     
 }
 
+//them call the footer
 footer();
 
 

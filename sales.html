@@ -7,17 +7,17 @@
 
     <style>
         th, td {
-           border: 1px solid black;
+           border: 1px solid rgb(170, 57, 57);
         }
         table{
 
             width:100px;
-            border: 1px solid black;
+            border: 1px solid rgb(170, 57, 57);
         }
      </style>
 
 </head>
-<body id = "salmonObjects" >
+<body  >
 <header>
     <h1> Salmon Cookies </h1>
 </header>
@@ -25,6 +25,38 @@
 
 
 
+<form action="" id="formid">
+<fieldset>
+
+
+    <label for="namefield"> Location Name  </label>
+    <input type="text" id="namefield"> 
+
+    <label for="min">Min Customer/hour</label>
+    <input type="number" id="min">
+
+    <label for="max">Max Customer/hour</label>
+    <input type="number" id="max">
+
+    <label for="avg">Cookies Average</label>
+    <input type="number" id="avg">
+
+
+<hr>
+    <input type="submit" value="Add a cookie standard">
+
+</fieldset>
+</form>
+
+<hr>
+<br>
+<br>
+
+
+<div id = "salmonObjects">
+
+
+</div>
 <script src="app.js"></script>
     
 </body>
